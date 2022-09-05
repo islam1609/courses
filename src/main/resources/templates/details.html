@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:action="@{'/editCourse'}" method="post">
+    <input type="hidden" name="courseId" th:value="${course.id}">
+    NAME : <input type="text" name="name" th:value="${course.name}"><br>
+    DESCRIPTION: <textarea name="description"th:text="${course.description}" ></textarea><br>
+    PRICE: <input type="number" name="price" min="0" max="150000" th:value="${course.price}"><br>
+    RATING: <input type="number" name="rating" min="0" max="5" th:value="${course.rating}"><br>
+    CATEGORY:
+    <select name="categoryId" ><br>
+    <option th:each="cat : ${allCategories}" th:text="${cat.name}"
+            th:value="${cat.id}" th:selected="course.getCategory"></option>
+    </select><br>
+    <button>EDIT COURSE</button>
+</form>
+    <form th:action="@{'/deleteCourse'}" method="post">
+        <input type="hidden" name="courseId" th:value="${course.id}">
+        <button>DELETE</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>HELLO MY FRIEND</h1>
+<h1 th:text="${#authentication.getPrincipal().fullName}"></h1>
+<h2 sec:authorize = "isAuthenticated()">you are online</h2>
+<a th:href="@{'/adminPanel'}" sec:authorize = "hasAnyRole('ROLE_ADMIN')">ADMIN PANEL</a>
+<form th:action="@{'/updatePassword'}" method="post">
+    OLD PASSWORD: <input type="password" name="old_password">
+    NEW PASSWORD: <input type="password" name="new_password">
+    REPEAT NEW PASSWORD: <input type="password" name="re_new_password">
+    <button>UPDATE PASSWORD</button>
+</form>
+<form th:action="@{'/vyhod'}" method="post">
+    <button>SIGN OUT</button>
+</form>
+</body>
+</html>

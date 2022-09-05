@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html  lang="en" xmlns:th="http://www.thymeleaf.org"
+       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1 th:text="${#authentication.getPrincipal().fullName}"></h1>
+    <h2>THIS IS ADMIN PANEL</h2><br><br>
+    <a th:href="@{'/courses'}" sec:authorize="hasAnyRole('ROLE_ADMIN')">COURSES</a>
+</body>
+</html>
