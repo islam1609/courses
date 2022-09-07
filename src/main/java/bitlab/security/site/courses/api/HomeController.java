@@ -172,6 +172,13 @@ public class HomeController {
         return "redirect:/courses";
     }
 
+    @PreAuthorize("isAuthenticated()")
+    @GetMapping("/news")
+    public String news(Model model){
+        model.addAttribute("user",getCurrentUser());
+        return "news";
+    }
+
 
     private User getCurrentUser() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();

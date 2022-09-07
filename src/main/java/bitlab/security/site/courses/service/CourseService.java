@@ -28,7 +28,7 @@ public class CourseService {
     private UserMapper userMapper;
 
     public List<Course> getAllCourses(){
-        return courseRepository.findAll();
+        return courseRepository.findAllByOrderByIdAsc();
     }
 
     public List<CourseDTO> getAllCoursesDTO(){

@@ -9,6 +9,7 @@
 <h1 th:text="${#authentication.getPrincipal().fullName}"></h1>
 <h2 sec:authorize = "isAuthenticated()">you are online</h2>
 <a th:href="@{'/adminPanel'}" sec:authorize = "hasAnyRole('ROLE_ADMIN')">ADMIN PANEL</a>
+<a th:href="@{'/news'}" sec:authorize = "hasAnyRole('ROLE_USER')">NEWS</a>
 <form th:action="@{'/updatePassword'}" method="post">
     OLD PASSWORD: <input type="password" name="old_password">
     NEW PASSWORD: <input type="password" name="new_password">
