@@ -14,7 +14,7 @@
     CATEGORY:
     <select name="categoryId" ><br>
     <option th:each="cat : ${allCategories}" th:text="${cat.name}"
-            th:value="${cat.id}" th:selected="course.getCategory"></option>
+            th:value="${cat.id}" th:selected="${item.getCategory.name==cat.name}"></option>
     </select><br>
     <button>EDIT COURSE</button>
 </form>

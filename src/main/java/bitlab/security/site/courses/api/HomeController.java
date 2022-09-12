@@ -136,7 +136,6 @@ public class HomeController {
     @GetMapping(value = "/details/{id}")
     public String details(@PathVariable(name = "id") Long id,
                           Model model){
-        System.out.println("details");
         List<CourseCategory> courseCategories = courseService.getAllCategories();
         model.addAttribute("allCategories",courseCategories);
         Course course = courseService.getCourse(id);
